@@ -33,7 +33,7 @@ pipeline {
         stage('Integration test') {
           steps {
             echo 'Testing..'
-            sh 'mvn verify failsafe:integration-test -Dskip.surefire.tests=true'
+            sh 'mvn test-compile failsafe:integration-test verify -Dskip.surefire.tests=true'
           }
           post {
             always {
